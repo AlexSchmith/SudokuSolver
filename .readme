@@ -1,0 +1,5 @@
+Sudoku Solver
+
+
+This project is a simple sudoku solver that uses the backtracking algorithm which is more efficient than
+trying to generate a brute force solver which would be 9^81 possible solutions. 
