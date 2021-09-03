@@ -11,7 +11,8 @@ board = [
 ]
 
 def print_board(board):
-
+    print("\n\n\n")
+    
     for i in range(len(board)):
         if i % 3 == 0 and i != 0:
             print("= = = = = = = = = = = = ")
@@ -33,7 +34,7 @@ def find_empty(board):
 
 
 
-def valid_spot(board, num, pos):
+def valid(board, num, pos):
 
     # check row
     for i in range(len(board[0])):
@@ -68,8 +69,12 @@ def solve(board):
     for i in range(1, 10):
         if valid(board, i, (row, col)):
             board[row][col] = i 
-        
-    
+
+            if solve(board):
+                return True
+            
+            board[row][col] = 0
+    return False
 
 
 if __name__ == "__main__":
@@ -86,4 +91,5 @@ if __name__ == "__main__":
     ]
 
     print_board(board)
-    print(find_empty())
+    solve(board)
+    print_board(board)
